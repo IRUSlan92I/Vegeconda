@@ -35,7 +35,7 @@ func _ready() -> void:
 
 
 func play_animation() -> void:
-    var animation = "%s_%s" % [
+    var animation : String = "%s_%s" % [
         ANIMATIONS_BY_TYPE[door_type], 
         ANIMATIONS_BY_STATE[door_state]
     ]
