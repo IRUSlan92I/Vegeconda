@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo3w0sj364gql"]
+
+[ext_resource type="Texture2D" uid="uid://cueeywtu6xdbv" path="res://data/images/Fierd.png" id="1_84wqk"]
+[ext_resource type="Script" path="res://field.gd" id="1_hih70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moxxr"]
+atlas = ExtResource("1_84wqk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17j0p"]
+size = Vector2(16, 16)
+
+[node name="Field" type="StaticBody2D"]
+script = ExtResource("1_hih70")
+field_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_moxxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_17j0p")
