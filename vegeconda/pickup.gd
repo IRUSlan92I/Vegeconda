@@ -1,11 +1,13 @@
+class_name Pickup
+
 extends StaticBody2D
 
 
 enum PickupType {CHERRY, FLY_AGARIC, GREEN_APPLE, RED_APPLE}
-@export var pickup_type: PickupType
+@export var type: PickupType
 
 enum PickupState {PREPARING, SHOWING_UP, IDLING, HIGHLIGHTING}
-@export var pickup_state: PickupState = PickupState.PREPARING
+@export var state: PickupState = PickupState.PREPARING
 
 
 var ANIMATIONS_BY_TYPE : Dictionary = {
@@ -23,40 +25,35 @@ var ANIMATIONS_BY_STATE : Dictionary = {
 }
 
 
-
-func _init(type : PickupType = PickupType.RED_APPLE) -> void:
-    pickup_type = type
-
-
 func _ready() -> void:
     play_animation()
     
     
 func highlight() -> void:
-    pickup_state = PickupState.HIGHLIGHTING
+    state = PickupState.HIGHLIGHTING
     play_animation()
 
 
 func play_animation() -> void:
     var animation : String
-    if pickup_state == PickupState.PREPARING:
-        animation = ANIMATIONS_BY_STATE[pickup_state]
+    if state == PickupState.PREPARING:
+        animation = ANIMATIONS_BY_STATE[state]
     else:
         animation = "%s_%s" % [
-            ANIMATIONS_BY_TYPE[pickup_type], 
-            ANIMATIONS_BY_STATE[pickup_state]
+            ANIMATIONS_BY_TYPE[type], 
+            ANIMATIONS_BY_STATE[state]
         ]
     $AnimatedSprite2D.play(animation)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-    match pickup_state:
+    match state:
         PickupState.PREPARING:
-            pickup_state = PickupState.SHOWING_UP
+            state = PickupState.SHOWING_UP
             play_animation()
         PickupState.SHOWING_UP:
-            pickup_state = PickupState.IDLING
+            state = PickupState.IDLING
             play_animation()
         PickupState.HIGHLIGHTING:
-            pickup_state = PickupState.IDLING
+            state = PickupState.IDLING
             play_animation()

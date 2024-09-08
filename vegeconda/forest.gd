@@ -1,3 +1,5 @@
+class_name Forest
+
 extends StaticBody2D
 
 
@@ -8,7 +10,7 @@ enum ForestType {
     FRAME_TOP_LEFT, FRAME_TOP_RIGHT,
     FRAME_BOTTOM_LEFT, FRAME_BOTTOM_RIGHT,
 }
-@export var forest_type: ForestType
+@export var type: ForestType
 
 
 var POSITIONS_BY_TYPE : Dictionary = {
@@ -57,10 +59,6 @@ var POSITIONS_BY_TYPE : Dictionary = {
             Vector2(64, 16),
         ],
 }
-
-
-func _init(type : ForestType = ForestType.TOP) -> void:
-    forest_type = type
     
 
 func _ready() -> void:
@@ -68,5 +66,5 @@ func _ready() -> void:
 
 
 func update_atlas_position() -> void:
-    var positions = POSITIONS_BY_TYPE[forest_type]
+    var positions = POSITIONS_BY_TYPE[type]
     $Sprite2D.texture.region.position = positions[randi() % positions.size()]

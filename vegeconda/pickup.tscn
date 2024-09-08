@@ -303,12 +303,12 @@ script = ExtResource("2_rayse")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(13, 9)
+position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_00ngh")
 animation = &"red_apple_showing_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_jph8c")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

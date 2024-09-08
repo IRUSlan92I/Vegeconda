@@ -12,11 +12,12 @@ size = Vector2(16, 16)
 
 [node name="Field" type="StaticBody2D"]
 script = ExtResource("1_hih70")
-field_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(8, 8)
 texture = SubResource("AtlasTexture_moxxr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_17j0p")

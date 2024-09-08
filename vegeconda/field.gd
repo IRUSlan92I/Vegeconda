@@ -1,10 +1,12 @@
+class_name Field
+
 extends StaticBody2D
 
 
 enum FieldType {
     MIDDLE, CORNER, TOP, LEFT,
 }
-@export var field_type: FieldType
+@export var type: FieldType
 
 
 var POSITIONS_BY_TYPE : Dictionary = {
@@ -37,10 +39,6 @@ var POSITIONS_BY_TYPE : Dictionary = {
             Vector2(64, 16),
         ],
 }
-
-
-func _init(type : FieldType = FieldType.MIDDLE) -> void:
-    field_type = type
     
 
 func _ready() -> void:
@@ -48,5 +46,5 @@ func _ready() -> void:
 
 
 func update_atlas_position() -> void:
-    var positions = POSITIONS_BY_TYPE[field_type]
+    var positions = POSITIONS_BY_TYPE[type]
     $Sprite2D.texture.region.position = positions[randi() % positions.size()]
