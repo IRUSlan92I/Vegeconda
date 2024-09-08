@@ -62,15 +62,16 @@ func close():
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-    if door_state == DoorState.CLOSING:
-        door_state = DoorState.CLOSED
-        $CollisionShape2D.disabled = false
-        play_animation()
-    elif door_state == DoorState.OPENING:
-        door_state = DoorState.OPENED
-        $CollisionShape2D.disabled = true
-        play_animation()
-    elif door_state == DoorState.CLOSED:
-        closed.emit()
-    elif door_state == DoorState.OPENED:
-        opened.emit()
+    match door_state:
+        DoorState.CLOSING:
+            door_state = DoorState.CLOSED
+            $CollisionShape2D.disabled = false
+            play_animation()
+        DoorState.OPENING:
+            door_state = DoorState.OPENED
+            $CollisionShape2D.disabled = true
+            play_animation()
+        DoorState.CLOSED:
+            closed.emit()
+        DoorState.OPENED:
+            opened.emit()

@@ -50,12 +50,13 @@ func play_animation() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-    if pickup_state == PickupState.PREPARING:
-        pickup_state = PickupState.SHOWING_UP
-        play_animation()
-    elif pickup_state == PickupState.SHOWING_UP:
-        pickup_state = PickupState.IDLING
-        play_animation()
-    elif pickup_state == PickupState.HIGHLIGHTING:
-        pickup_state = PickupState.IDLING
-        play_animation()
+    match pickup_state:
+        PickupState.PREPARING:
+            pickup_state = PickupState.SHOWING_UP
+            play_animation()
+        PickupState.SHOWING_UP:
+            pickup_state = PickupState.IDLING
+            play_animation()
+        PickupState.HIGHLIGHTING:
+            pickup_state = PickupState.IDLING
+            play_animation()
