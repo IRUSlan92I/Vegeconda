@@ -31,9 +31,9 @@ region = Rect2(0, 16, 16, 16)
 atlas = ExtResource("1_n81fa")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_il5p2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d06fb"]
 atlas = ExtResource("1_n81fa")
-region = Rect2(48, 48, 16, 16)
+region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwyt8"]
 atlas = ExtResource("1_n81fa")
@@ -150,7 +150,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_il5p2")
+"texture": SubResource("AtlasTexture_d06fb")
 }],
 "loop": false,
 "name": &"bottom_door_opened",
@@ -257,3 +257,5 @@ animation = &"bottom_door_opened"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_notjl")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
