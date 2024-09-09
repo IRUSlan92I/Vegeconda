@@ -26,15 +26,10 @@ var ANIMATIONS_BY_STATE : Dictionary = {
 
 
 func _ready() -> void:
-    play_animation()
-    
-    
-func highlight() -> void:
-    state = PickupState.HIGHLIGHTING
-    play_animation()
+    _play_animation()
 
 
-func play_animation() -> void:
+func _play_animation() -> void:
     var animation : String
     if state == PickupState.PREPARING:
         animation = ANIMATIONS_BY_STATE[state]
@@ -50,10 +45,15 @@ func _on_animated_sprite_2d_animation_finished() -> void:
     match state:
         PickupState.PREPARING:
             state = PickupState.SHOWING_UP
-            play_animation()
+            _play_animation()
         PickupState.SHOWING_UP:
             state = PickupState.IDLING
-            play_animation()
+            _play_animation()
         PickupState.HIGHLIGHTING:
             state = PickupState.IDLING
-            play_animation()
+            _play_animation()
+
+
+func highlight() -> void:
+    state = PickupState.HIGHLIGHTING
+    _play_animation()

@@ -40,17 +40,17 @@ var bottom_door = null
 
 
 func _ready() -> void:
-    create_level()
+    _create_level()
 
 
-func create_level() -> void:
-    create_forest()
-    create_field()
-    add_top_door()
-    add_bottom_door()
+func _create_level() -> void:
+    _create_forest()
+    _create_field()
+    _create_top_door()
+    _create_bottom_door()
 
 
-func create_forest() -> void:
+func _create_forest() -> void:
     $TileMapLayer.set_cell(Vector2i(0,0), 0, TOP_LEFT_FOREST)
     $TileMapLayer.set_cell(Vector2i(19,0), 0, TOP_RIGHT_FOREST)
     $TileMapLayer.set_cell(Vector2i(0,10), 0, BOTTOM_LEFT_FOREST)
@@ -65,7 +65,7 @@ func create_forest() -> void:
         $TileMapLayer.set_cell(Vector2i(19,i), 0, RIGHT_FORESTS[randi() % RIGHT_FORESTS.size()])
 
 
-func create_field() -> void:
+func _create_field() -> void:
     $TileMapLayer.set_cell(Vector2i(1,1), 1, CORNER_FIELDS[randi() % CORNER_FIELDS.size()])
     
     for i in range(2, 19):
@@ -78,7 +78,7 @@ func create_field() -> void:
         for j in range(2, 10):
             $TileMapLayer.set_cell(Vector2i(i,j), 1, CENTER_FIELDS[randi() % CENTER_FIELDS.size()])
 
-func add_top_door():
+func _create_top_door():
     const y = 0
     $TileMapLayer.set_cell(Vector2i(top_door_x-1,y), 0, TOP_LEFT_DOOR)
     $TileMapLayer.set_cell(Vector2i(top_door_x,y), 1, LEFT_FIELDS[randi() % LEFT_FIELDS.size()])
@@ -92,7 +92,7 @@ func add_top_door():
     add_child(top_door)
 
 
-func add_bottom_door():
+func _create_bottom_door():
     const y = 10
     $TileMapLayer.set_cell(Vector2i(bottom_door_x-1,y), 0, BOTTOM_LEFT_DOOR)
     $TileMapLayer.set_cell(Vector2i(bottom_door_x,y), 1, LEFT_FIELDS[randi() % LEFT_FIELDS.size()])
