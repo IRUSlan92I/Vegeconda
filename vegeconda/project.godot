@@ -11,16 +11,19 @@ config_version=5
 [application]
 
 config/name="Vegeconda"
-run/main_scene="res://level.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/resizable=false
-window/stretch/scale=8.0
+window/stretch/scale=4.0
+
+[dotnet]
+
+project/assembly_name="Vegeconda"
 
 [rendering]
 
