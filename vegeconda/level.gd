@@ -90,6 +90,12 @@ func _create_top_door():
     top_door.state = Door.DoorState.CLOSED
     top_door.position = Vector2i(top_door_x,y)*16
     add_child(top_door)
+    
+    $CollisionBoxTopLeft.shape.size.x = (top_door_x - 1) * 16
+    $CollisionBoxTopLeft.position.x += $CollisionBoxTopLeft.shape.size.x/2 - 8
+    
+    $CollisionBoxTopRight.shape.size.x = (20 - top_door_x - 2) * 16
+    $CollisionBoxTopRight.position.x -= $CollisionBoxTopRight.shape.size.x/2 - 8
 
 
 func _create_bottom_door():
@@ -100,6 +106,13 @@ func _create_bottom_door():
     
     bottom_door = DOOR.instantiate()
     bottom_door.type = Door.DoorType.BOTTOM_DOOR
-    bottom_door.state = Door.DoorState.CLOSED
+    bottom_door.state = Door.DoorState.OPENED
     bottom_door.position = Vector2i(bottom_door_x,y)*16
     add_child(bottom_door)
+    
+    
+    $CollisionBoxBottomLeft.shape.size.x = (bottom_door_x - 1) * 16
+    $CollisionBoxBottomLeft.position.x += $CollisionBoxBottomLeft.shape.size.x/2 - 8
+    
+    $CollisionBoxBottomRight.shape.size.x = (20 - bottom_door_x - 2) * 16
+    $CollisionBoxBottomRight.position.x -= $CollisionBoxBottomRight.shape.size.x/2 - 8

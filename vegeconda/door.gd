@@ -28,6 +28,7 @@ signal closed()
 
 
 func _ready() -> void:
+    $CollisionShape2D.disabled = state == DoorState.OPENED
     _play_animation()
 
 
