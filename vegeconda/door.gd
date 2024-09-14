@@ -10,12 +10,12 @@ enum DoorState {OPENED, CLOSED, OPENING, CLOSING}
 @export var state: DoorState
 
 
-var ANIMATIONS_BY_TYPE : Dictionary = {
+const ANIMATIONS_BY_TYPE := {
     DoorType.BOTTOM_DOOR: "bottom_door",
     DoorType.TOP_DOOR: "top_door",
 }
 
-var ANIMATIONS_BY_STATE : Dictionary = {
+const ANIMATIONS_BY_STATE := {
     DoorState.OPENED: "opened",
     DoorState.CLOSED: "closed",
     DoorState.OPENING: "opening",
@@ -33,7 +33,7 @@ func _ready() -> void:
 
 
 func _play_animation() -> void:
-    var animation : String = "%s_%s" % [
+    var animation := "%s_%s" % [
         ANIMATIONS_BY_TYPE[type], 
         ANIMATIONS_BY_STATE[state]
     ]

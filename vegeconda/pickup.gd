@@ -4,20 +4,20 @@ extends StaticBody2D
 
 
 enum PickupType {CHERRY, FLY_AGARIC, GREEN_APPLE, RED_APPLE}
-@export var type: PickupType
+@export var type: PickupType = PickupType.RED_APPLE
 
 enum PickupState {PREPARING, SHOWING_UP, IDLING, HIGHLIGHTING}
 @export var state: PickupState = PickupState.PREPARING
 
 
-var ANIMATIONS_BY_TYPE : Dictionary = {
+const ANIMATIONS_BY_TYPE := {
     PickupType.CHERRY: "cherry",
     PickupType.FLY_AGARIC: "fly_agaric",
     PickupType.GREEN_APPLE: "green_apple",
     PickupType.RED_APPLE: "red_apple",
 }
 
-var ANIMATIONS_BY_STATE : Dictionary = {
+const ANIMATIONS_BY_STATE := {
     PickupState.PREPARING: "preparing",
     PickupState.SHOWING_UP: "showing_up",
     PickupState.IDLING: "idling",
