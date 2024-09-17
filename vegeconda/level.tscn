@@ -74,6 +74,7 @@ size = Vector2(16, 16)
 
 [node name="Level" type="StaticBody2D"]
 script = ExtResource("1_t0agp")
+metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_e0bu0")

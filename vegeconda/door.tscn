@@ -247,6 +247,7 @@ size = Vector2(16, 16)
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_7rkx7")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
