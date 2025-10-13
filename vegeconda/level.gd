@@ -1,3 +1,5 @@
+class_name Level
+
 extends Node2D
 
 @export_range(2, 17) var top_door_x := 2
