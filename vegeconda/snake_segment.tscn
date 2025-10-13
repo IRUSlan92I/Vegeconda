@@ -1,6 +1,6 @@
 [gd_scene load_steps=324 format=3 uid="uid://wnxjoy61hocf"]
 
-[ext_resource type="Script" path="res://snake_segment.gd" id="1_edgpa"]
+[ext_resource type="Script" uid="uid://cl8has1236st4" path="res://snake_segment.gd" id="1_edgpa"]
 [ext_resource type="Texture2D" uid="uid://bl4w670870hf5" path="res://data/images/Snake.png" id="2_dj5ef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oevm2"]
@@ -2030,7 +2030,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aht5m")
 }],
-"loop": true,
+"loop": false,
 "name": &"left-tail-down-phase-2",
 "speed": 5.0
 }, {
@@ -2118,7 +2118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmed7")
 }],
-"loop": true,
+"loop": false,
 "name": &"left-tail-up-phase-2",
 "speed": 5.0
 }, {
@@ -2436,7 +2436,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u5e6r")
 }],
-"loop": true,
+"loop": false,
 "name": &"left-turn-up-in-phase-2",
 "speed": 5.0
 }, {
@@ -2585,7 +2585,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tpoi5")
 }],
-"loop": true,
+"loop": false,
 "name": &"left-turn-up-tail-phase-2",
 "speed": 5.0
 }, {
@@ -2759,7 +2759,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_u31w8")
-animation = &"left-turn-up-tail-phase-2"
+animation = &"left-waves-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
