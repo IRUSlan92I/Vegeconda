@@ -1,2 +1,2 @@
 # Vegeconda
-First Gotot game
+First Godot game (abandoned)
