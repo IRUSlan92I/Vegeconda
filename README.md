@@ -1,2 +1,3 @@
 # Vegeconda
-First Gotot game
+
+My first Godot game. An unfinished and abandoned project.
